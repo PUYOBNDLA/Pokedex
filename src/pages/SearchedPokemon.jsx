@@ -87,31 +87,28 @@ const SearchedPokemon = () => {
         return <ErrorScreen/>;
 
     return (
-        <div className='h-[100vh] p-[1rem]'>
-            <div className='mb-[1rem]'>
-                <Link to={'/'}>
-                    <Button label='Back'/>
-                </Link>
-            </div>
-
-            <div>
-                <div>
-                    <h4 className='text-[clamp(2rem,6vw,4rem)] capitalize font-bold'>
+        <div className='h-[100vh] p-[1rem] flex justify-center'>
+            <div className='block justify-center w-full mx-[30%]'>
+                <div className='flex text-[clamp(2rem,6vw,4rem)] capitalize font-bold w-full justify-center'>
+                    <h4>
                         {selectedPokemon.name}
                     </h4>
-                    <div className='flex gap-[0.5rem] my-[1rem]'>
-                        {selectedPokemon.types.map((type, index) => (
-                            <span key={index} className={`${colours[type.type.name]} p-[0.5rem] font-bold capitalize text-white rounded-lg`}>{type.type.name}</span>
-                        ))}
-                    </div>
-                    <div>
-                        <div>
-                            <Stats stats={stats}/>
-                        </div>
-                        <div>
-                            <img src={selectedPokemon.sprites.other.home.front_default} alt={selectedPokemon.name}/>
-                        </div>
-                    </div>
+                </div>
+                <div className='flex justify-center'>
+                    <img className='w-[300px]' src={selectedPokemon.sprites.other.home.front_default} alt={selectedPokemon.name}/>
+                </div>
+                <div className='flex gap-[0.5rem] my-[1rem] justify-center'>
+                    {selectedPokemon.types.map((type, index) => (
+                        <span key={index} className={`${colours[type.type.name]} p-[0.5rem] font-bold capitalize text-white rounded-lg`}>{type.type.name}</span>
+                    ))}
+                </div>
+                <div className=''>
+                    <Stats stats={stats}/>
+                </div>
+                <div className='m-[1rem] flex justify-center'>
+                    <Link to={'/'}>
+                        <Button label='Back'/>
+                    </Link>
                 </div>
             </div>
         </div>
