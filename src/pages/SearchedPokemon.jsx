@@ -87,28 +87,28 @@ const SearchedPokemon = () => {
         return <ErrorScreen/>;
 
     return (
-        <div className='h-[100vh] p-[1rem] overflow-y-auto flex flex-col'>
+        <div className='h-[100vh] p-[1rem]'>
             <div className='mb-[1rem]'>
                 <Link to={'/'}>
                     <Button label='Back'/>
                 </Link>
             </div>
 
-            <div className='flex flex-1 gap-[2rem]'>
-                <div className='flex-1'>
+            <div>
+                <div>
                     <h4 className='text-[clamp(2rem,6vw,4rem)] capitalize font-bold'>
                         {selectedPokemon.name}
                     </h4>
                     <div className='flex gap-[0.5rem] my-[1rem]'>
                         {selectedPokemon.types.map((type, index) => (
-                            <span key={index} className={`${colours[type.type.name]} p-[0.5rem] font-bold capitalize text-white`}>{type.type.name}</span>
+                            <span key={index} className={`${colours[type.type.name]} p-[0.5rem] font-bold capitalize text-white rounded-lg`}>{type.type.name}</span>
                         ))}
                     </div>
-                    <div className='grid grid-cols-2 gap-[2rem] items-center w-full'>
+                    <div>
                         <div>
                             <Stats stats={stats}/>
                         </div>
-                        <div className='w-[400px] h-[400px] justify-self-center'>
+                        <div>
                             <img src={selectedPokemon.sprites.other.home.front_default} alt={selectedPokemon.name}/>
                         </div>
                     </div>
